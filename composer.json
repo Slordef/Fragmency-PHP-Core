@@ -17,7 +17,7 @@
   "minimum-stability": "dev",
   "autoload": {
     "psr-4": {
-      "Fragmency\\FragmencyCore\\": "src/"
+      "slordef\\FragmencyCore\\": "src/"
     }
   }
 }
