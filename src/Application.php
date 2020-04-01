@@ -22,8 +22,10 @@ class Application
 
     private function environnement(){
         $path = $this->getRootProjectFolder();
-        $dotenv = Dotenv::createImmutable($path);
-        $dotenv->load();
+        if(file_exists($path.'.env')) {
+            $dotenv = Dotenv::createImmutable($path);
+            $dotenv->load();
+        }
     }
     
     public function getRootProjectFolder(){ return dirname(__FILE__,5); }
