@@ -22,7 +22,7 @@ class Application
 
     private function environnement(){
         $path = $this->getRootProjectFolder();
-        if(file_exists($path.'.env')) {
+        if(file_exists($path.'/.env')) {
             $dotenv = Dotenv::createImmutable($path);
             $dotenv->load();
         }
@@ -55,7 +55,7 @@ class Application
             $method = $route->getView().'_METHOD';
             $data = $controller->$method();
         }
-        if(is_a($data,'Page')) Response::page($data);
+        if(is_a($data,'Fragmency\Core\Page')) Response::page($data);
         else $this->Fragmency->file($data);
     }
 }

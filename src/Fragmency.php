@@ -44,8 +44,8 @@ class Fragmency
      * @throws \Exception
      */
     public function launch($do = null, string $view = null){
-        if ($this->Router !== null) $this->routingAndControl();
-        if ($this->Controller !== null && $view !== null) $this->control($do,$view);
+        if($this->Router) $this->routingAndControl();
+        if($this->Controller && $view !== null) $this->control($do,$view);
         if($do === "file" && $view !== null) $this->file($view);
         
         throw new \Exception("Fragmency Launcher ending without any solution");
@@ -53,7 +53,7 @@ class Fragmency
     }
     
     private function file($file){
-        if(!file_exists($file)) return false;
+        if(!file_exists($file) && file_exists(root($file))) return false;
         $page = new Page();
         $page->setContent('layout', $file);
         Response::page($page);

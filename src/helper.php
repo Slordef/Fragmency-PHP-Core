@@ -32,7 +32,9 @@ function json($data){
 }
 
 function root($path = ""){
-    return \Fragmency\Core\Application::STATIC_getRootProjectFolder().$path;
+    if(substr($path,0,1) === '/' || substr($path,0,1) === '\\')
+        return \Fragmency\Core\Application::STATIC_getRootProjectFolder().$path;
+    return \Fragmency\Core\Application::STATIC_getRootProjectFolder().'/'.$path;
 }
 
 function dd(){

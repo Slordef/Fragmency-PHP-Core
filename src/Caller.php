@@ -28,7 +28,7 @@ class Caller
         ];
     }
     public function Database(){
-        $class = "Fragmency\\Database\\DB";
+        $class = "Fragmency\\Database\\DatabaseManager";
         return class_exists($class) ? new $class($this->app) : false;
     }
     public function Router(){
